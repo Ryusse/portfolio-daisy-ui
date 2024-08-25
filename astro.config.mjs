@@ -9,7 +9,12 @@ import netlify from "@astrojs/netlify";
 // https://astro.build/config
 export default defineConfig({
   site: "https://example.com",
-  integrations: [mdx(), sitemap(), tailwind(), icon()],
+  integrations: [
+    mdx(),
+    sitemap(),
+    tailwind(),
+    icon({ iconDir: "src/assets/icons" }),
+  ],
   output: "server",
-  adapter: netlify()
+  adapter: netlify(),
 });

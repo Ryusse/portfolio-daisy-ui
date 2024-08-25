@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import { socialLinks } from "@/lib/consts";
+import Me from "@/assets/images/me.jpg";
+---
+
+<div class="grid gap-8 max-w-3xl mx-auto">
+  <picture class="w-fit mx-auto">
+    <Image
+      src={Me}
+      class="rounded-full aspect-square"
+      alt="Me"
+      width={200}
+      height={200}
+    />
+  </picture>
+  <div class="grid gap-4">
+    <h1
+      class="text-4xl leading-snug contrast-150 font-bold uppercase text-center"
+    >
+      I’m Joel Ocaño, UI/UX designer and frontend developer
+    </h1>
+    <p class="text-center text-xl">
+      I design products with purpose and meticulous attention to detail. Aviable
+      for work.
+    </p>
+  </div>
+  <div class="flex items-center justify-center flex-wrap gap-4">
+    {
+      socialLinks &&
+        socialLinks.map((link) => (
+          <div class="lg:tooltip" data-tip={link.label}>
+            <a href={link.href} class="btn btn-square text-2xl btn-circle">
+              <Icon name={link.icon} />
+            </a>
+          </div>
+        ))
+    }
+  </div>
+</div>

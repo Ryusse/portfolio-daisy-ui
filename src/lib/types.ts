@@ -10,3 +10,11 @@ export type CtaItemType = {
   text: string;
   href: string;
 };
+
+export type ServiceType = {
+  title: string;
+  icon: string;
+  description: string;
+  href: string;
+  image: ImageMetadata;
+};

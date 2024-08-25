@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import type { ServiceType } from "@/lib/types";
+
+type Props = {
+  data: ServiceType;
+};
+
+const { data } = Astro.props;
+---
+
+<div
+  class="grid w-full h-fit group gap-7 md:gap-16 items-center md:grid-cols-[1fr_auto] transition-all ease-in-out"
+>
+  <div class="grid gap-7">
+    <div
+      class="bg-base-300 p-3 grid place-content-center w-11 h-11 rounded-full"
+    >
+      <Icon name={data.icon} class="text-xl" />
+    </div>
+    <div class="grid gap-2 max-w-[700px]">
+      <h4 class="text-3xl font-semibold">{data.title}</h4>
+      <p class="">
+        {data.description}
+      </p>
+    </div>
+    <a href="#" class="btn w-fit btn-primary">View all work</a>
+  </div>
+  <picture
+    class="block lg:group-hover:opacity-100 lg:opacity-0 transition-all duration-700 ease-in-out"
+  >
+    <Image
+      src={data.image}
+      alt={data.title}
+      class="aspect-video w-full md:aspect-square rounded-3xl"
+      width={300}
+      height={272}
+    />
+  </picture>
+</div>

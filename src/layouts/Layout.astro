@@ -2,14 +2,15 @@
 type Props = {
   tag?: any;
   class?: string;
+  id?: string;
 };
 
-const { tag = "div", class: className = "", ...props }: Props = Astro.props;
+const { tag = "div", class: className = "", id, ...props }: Props = Astro.props;
 
 const Tag = tag;
 ---
 
-<Tag class:list={["layout", className]} {...props}>
+<Tag class:list={["layout", className]} id={id} {...props}>
   <slot />
 </Tag>
 

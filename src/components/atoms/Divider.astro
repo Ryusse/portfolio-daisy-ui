@@ -1,0 +1,24 @@
+---
+type Props = {
+  class?: string;
+  orientation?: "horizontal" | "vertical";
+};
+
+const {
+  orientation = "horizontal",
+  class: className,
+  ...props
+}: Props = Astro.props;
+---
+
+<div
+  class:list={[
+    "shrink-0 divider",
+    { "h-[1px] w-full": orientation === "horizontal" },
+    { "h-full w-[1px]": orientation === "vertical" },
+
+    className,
+  ]}
+  {...props}
+>
+</div>

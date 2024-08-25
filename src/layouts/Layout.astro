@@ -1,0 +1,28 @@
+---
+type Props = {
+  tag?: any;
+  class?: string;
+};
+
+const { tag = "div", class: className = "", ...props }: Props = Astro.props;
+
+const Tag = tag;
+---
+
+<Tag class:list={["layout", className]} {...props}>
+  <slot />
+</Tag>
+
+<style lang="scss" scoped>
+  .layout {
+    @apply w-full mx-auto px-4 max-w-[1194px];
+
+    @screen md {
+      @apply w-[calc(100%-80px)] px-0;
+    }
+
+    @screen lg {
+      @apply w-[calc(100%-120px)];
+    }
+  }
+</style>

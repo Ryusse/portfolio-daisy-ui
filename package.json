@@ -19,7 +19,8 @@
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource/montserrat": "^5.0.19",
     "astro": "^4.14.2",
-    "astro-icon": "^1.1.1"
+    "astro-icon": "^1.1.1",
+    "embla-carousel": "^8.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",

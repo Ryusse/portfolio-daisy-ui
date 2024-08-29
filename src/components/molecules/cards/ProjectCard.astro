@@ -1,28 +1,47 @@
 ---
 import { Image } from "astro:assets";
-import ImageTest from "@/assets/images/service-image-test.avif";
+
+import { type ProjectType } from "@/lib/types";
+
+type Props = {
+  data: ProjectType;
+};
+
+const { data } = Astro.props;
 ---
 
-<div class="grid gap-8 p-5 md:p-7 bg-base-100 rounded-3xl">
+<a
+  href={data.href}
+  class="grid btn text-base text-start leading-normal h-fit w-fit gap-8 p-5 md:p-7 bg-base-100 rounded-3xl"
+>
   <picture>
     <Image
       class="aspect-video w-full rounded-2xl"
-      src={ImageTest}
-      alt="Service image"
+      src={data.image}
+      alt={data.title}
     />
   </picture>
-  <div class="grid gap-3">
-    <div class="badge badge-neutral">
-      <p>Construction Company</p>
+  <div class="grid gap-4">
+    <div class="flex flex-wrap gap-2">
+      {
+        data.tags &&
+          data.tags.length > 0 &&
+          data.tags.map((tag) => (
+            <div class="badge badge-neutral">
+              <p>{tag}</p>
+            </div>
+          ))
+      }
     </div>
-    <div class="grid gap-1.5">
-      <h6 class="text-3xl">Moovin</h6>
-      <p>April 2023</p>
+    <div class="grid gap-3">
+      <h6 class="text-3xl">{data.title}</h6>
+      <div class="grid gap-1.5">
+        <p class="text-xl">{data.subtitle}</p>
+        <p class="text-base-content/70">{data.date}</p>
+      </div>
     </div>
-    <p class="font-normal">
-      Soft color schemes ensure a visually pleasing experience, aiming to keep
-      users engaged and at ease while navigating this site, in hopes that all
-      the information we wish to convey is easily absorbed by the user
+    <p class="font-normal text-base-content/70">
+      {data.description}
     </p>
   </div>
-</div>
+</a>

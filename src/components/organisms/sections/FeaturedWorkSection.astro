@@ -2,9 +2,13 @@
 import ProjectCard from "@/components/molecules/cards/ProjectCard.astro";
 import Layout from "@/layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
+import { featuredWork } from "@/lib/consts";
 ---
 
-<section class="bg-base-200 section overflow-x-hidden">
+<section
+  class="bg-base-200 grid gap-12 section overflow-x-hidden"
+  id="projects"
+>
   <Layout class="grid gap-12">
     <div class="grid md:grid-cols-2 gap-10">
       <h5 class="text-2xl font-semibold uppercase">Featured work</h5>
@@ -12,58 +16,42 @@ import { Icon } from "astro-icon/components";
         >See all my work</a
       >
     </div>
+  </Layout>
 
-    <div class="embla grid gap-10">
-      <div class="embla__viewport">
-        <div class="embla__container">
-          <div class="embla__slide">
-            <div class="embla__slide__number">
-              <ProjectCard />
-            </div>
-          </div>
-          <div class="embla__slide">
-            <div class="embla__slide__number">
-              <ProjectCard />
-            </div>
-          </div>
-          <div class="embla__slide">
-            <div class="embla__slide__number">
-              <ProjectCard />
-            </div>
-          </div>
-          <div class="embla__slide">
-            <div class="embla__slide__number">
-              <ProjectCard />
-            </div>
-          </div>
-          <div class="embla__slide">
-            <div class="embla__slide__number">
-              <ProjectCard />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="grid mx-auto w-fit gap-5 grid-cols-2">
-        <button
-          class="embla__button embla__button--prev"
-          type="button"
-          disabled=""
-        >
-          <Icon name="prev" />
-        </button>
-        <button
-          class="embla__button embla__button--next"
-          type="button"
-          disabled=""
-        >
-          <Icon name="next" />
-        </button>
+  <div class="embla px-4 rounded-2xl lg:px-0 grid gap-10">
+    <div class="embla__viewport rounded-3xl">
+      <div class="embla__container">
+        {
+          featuredWork &&
+            featuredWork.map((project) => (
+              <div class="embla__slide">
+                <div class="embla__slide__number">
+                  <ProjectCard data={project} />
+                </div>
+              </div>
+            ))
+        }
       </div>
     </div>
-    <a href="#" class="btn md:hidden w-fit mx-auto btn-primary"
-      >See all my work</a
-    >
-  </Layout>
+    <div class="grid mx-auto w-fit gap-5 grid-cols-2">
+      <button
+        class="btn btn-square btn-outline embla__button--prev"
+        type="button"
+        disabled=""
+      >
+        <Icon name="prev" />
+      </button>
+      <button
+        class="btn btn-square btn-outline embla__button--next"
+        type="button"
+        disabled=""
+      >
+        <Icon name="next" />
+      </button>
+    </div>
+  </div>
+  <a href="#" class="btn md:hidden w-fit mx-auto btn-primary">See all my work</a
+  >
 </section>
 
 <script>
@@ -71,7 +59,7 @@ import { Icon } from "astro-icon/components";
   import { setupTweenScale } from "@/assets/scripts/EmblaCarouselTweenScale";
   import { addPrevNextBtnsClickHandlers } from "@/assets/scripts/EmblaCarouselArrowButtons";
 
-  const OPTIONS = { loop: true };
+  const OPTIONS = { loop: true, startIndex: 0 };
 
   const emblaNode = document.querySelector(".embla");
 
@@ -125,7 +113,11 @@ import { Icon } from "astro-icon/components";
     padding-left: var(--slide-spacing);
 
     @screen lg {
-      @apply flex-[0_0_55%];
+      @apply flex-[0_0_45%];
+    }
+
+    @screen xl {
+      @apply flex-[0_0_35%];
     }
   }
   .embla__slide__number {
@@ -145,31 +137,8 @@ import { Icon } from "astro-icon/components";
     gap: 1.2rem;
     margin-top: 1.8rem;
   }
-  .embla__button {
-    appearance: none;
-    background-color: transparent;
-    touch-action: manipulation;
-    display: inline-flex;
-    text-decoration: none;
-    cursor: pointer;
-    border: 0;
-    padding: 0;
-    margin: 0;
-    width: 3rem;
-    height: 3rem;
-    z-index: 1;
-    border-radius: 50%;
-    color: theme("colors.base-content");
-    display: flex;
-    border: 1px solid theme("colors.base-content");
-    align-items: center;
-    justify-content: center;
-  }
+
   .embla__button:disabled {
     color: var(--detail-high-contrast);
-  }
-  .embla__button__svg {
-    width: 35%;
-    height: 35%;
   }
 </style>

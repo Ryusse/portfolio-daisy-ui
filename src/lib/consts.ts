@@ -1,4 +1,9 @@
-import type { CtaItemType, ServiceType, SocialLinkType } from "./types";
+import type {
+  CtaItemType,
+  ProjectType,
+  ServiceType,
+  SocialLinkType,
+} from "./types";
 
 import TestImage from "@/assets/images/service-image-test.avif";
 
@@ -71,5 +76,58 @@ export const services: ServiceType[] = [
     title: "UI/UX Design",
     description: "I design websites using Figma.",
     image: TestImage,
+  },
+];
+
+export const featuredWork: ProjectType[] = [
+  {
+    href: "#",
+    image: TestImage,
+    title: "Project 1",
+    subtitle: "Construction Company",
+    tags: ["Landing page", "UI/UX Design"],
+    date: "April 2023",
+    description:
+      " Soft color schemes ensure a visually pleasing experience, aiming to keep users engaged and at ease while navigating this site, in hopes that all the information we wish to convey is easily absorbed by the user",
+  },
+  {
+    href: "#",
+    image: TestImage,
+    title: "Project 2",
+    subtitle: "Construction Company",
+    tags: ["Landing page", "UI/UX Design"],
+    date: "April 2023",
+    description:
+      " Soft color schemes ensure a visually pleasing experience, aiming to keep users engaged and at ease while navigating this site, in hopes that all the information we wish to convey is easily absorbed by the user",
+  },
+  {
+    href: "#",
+    image: TestImage,
+    title: "Project 3",
+    subtitle: "Construction Company",
+    tags: ["Landing page", "UI/UX Design"],
+    date: "April 2023",
+    description:
+      " Soft color schemes ensure a visually pleasing experience, aiming to keep users engaged and at ease while navigating this site, in hopes that all the information we wish to convey is easily absorbed by the user",
+  },
+  {
+    href: "#",
+    image: TestImage,
+    title: "Project 4",
+    subtitle: "Construction Company",
+    tags: ["Landing page", "UI/UX Design"],
+    date: "April 2023",
+    description:
+      " Soft color schemes ensure a visually pleasing experience, aiming to keep users engaged and at ease while navigating this site, in hopes that all the information we wish to convey is easily absorbed by the user",
+  },
+  {
+    href: "#",
+    image: TestImage,
+    title: "Project 5",
+    subtitle: "Construction Company",
+    tags: ["Landing page", "UI/UX Design"],
+    date: "April 2023",
+    description:
+      " Soft color schemes ensure a visually pleasing experience, aiming to keep users engaged and at ease while navigating this site, in hopes that all the information we wish to convey is easily absorbed by the user",
   },
 ];

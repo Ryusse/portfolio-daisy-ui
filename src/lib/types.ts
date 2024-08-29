@@ -18,3 +18,13 @@ export type ServiceType = {
   href: string;
   image: ImageMetadata;
 };
+
+export type ProjectType = {
+  href: string;
+  image: ImageMetadata;
+  title: string;
+  subtitle: string;
+  tags: string[];
+  date: string;
+  description: string;
+};

@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+
+  .section {
+    @apply py-[80px]
+  }
+
+  .text-body-color {
+    @apply text-base-content/70;
+  }
+}

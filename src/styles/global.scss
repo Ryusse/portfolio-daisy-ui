@@ -4,12 +4,12 @@
 
 @layer utilities {
   html {
-    @apply font-sans;
+    @apply font-sans selection:bg-accent;
     scroll-behavior: smooth;
   }
 
   .section {
-    @apply py-[80px]
+    @apply py-20;
   }
 
   .text-body-color {

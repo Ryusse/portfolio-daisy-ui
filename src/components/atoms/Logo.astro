@@ -1,0 +1,22 @@
+---
+import { Icon } from "astro-icon/components";
+
+type Props = {
+  class?: string;
+};
+
+const { class: className = "" } = Astro.props;
+---
+
+<Icon name="logo" class:list={["w-10 h-10 logo", className]} />
+
+<style>
+  .logo {
+    rect {
+      @apply fill-primary;
+    }
+    path {
+      @apply fill-base-content;
+    }
+  }
+</style>

@@ -1,0 +1,29 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout id="contact" class="section">
+  <div class="max-w-xl mx-auto grid justify-center gap-8">
+    <h6 class="text-2xl text-center font-semibold uppercase">¿Tienes un proyecto en mente?, Hablemos</h6>
+    <div class="grid gap-4 justify-center">
+      <a href="/contact" class="btn btn-primary w-fit mx-auto">Habla conmigo</a>
+      <p>
+        <span class="text-body-color">Mi hora local:</span>
+        <span id="datetime" class="text-center font-semibold"></span>
+      </p>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import moment from "moment";
+
+  const datetime = document.getElementById("datetime") as HTMLElement;
+
+  let update;
+
+  (update = () => {
+    datetime.innerHTML = moment().format("h:mm:ss a");
+  })();
+  setInterval(update, 1000);
+</script>

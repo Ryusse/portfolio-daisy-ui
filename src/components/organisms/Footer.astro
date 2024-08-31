@@ -1,0 +1,19 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Logo from "../atoms/Logo.astro";
+
+const today = new Date();
+
+const linkedinProfile = "https://www.linkedin.com/in/joel-angel-oca%C3%B1o-or%C3%A9-9a52b5202/";
+---
+
+<section id="footer" class="section bg-base-300">
+  <Layout>
+    <Logo class="mx-auto" />
+    <p class="text-center">
+      &copy; {today.getFullYear()} Diseñado y desarrollado por
+      <a class="hover:underline" href={linkedinProfile} target="_blank" class="">Joel Ocaño</a>. Todos los derechos
+      reservados.
+    </p>
+  </Layout>
+</section>

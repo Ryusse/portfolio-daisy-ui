@@ -22,6 +22,7 @@
     "astro-icon": "^1.1.1",
     "embla-carousel": "^8.2.0",
     "just-validate": "^4.3.0",
+    "moment": "^2.30.1",
     "toastify-js": "^1.12.0"
   },
   "devDependencies": {

@@ -1,9 +1,4 @@
-import type {
-  CtaItemType,
-  ProjectType,
-  ServiceType,
-  SocialLinkType,
-} from "./types";
+import type { CtaItemType, ProjectType, ServiceType, SocialLinkType } from "./types";
 
 import TestImage from "@/assets/images/service-image-test.avif";
 
@@ -50,7 +45,7 @@ export const ctaLinks: CtaItemType[] = [
     icon: "envelope",
     title: "Contact me",
     text: "Send me a email",
-    href: "#contact",
+    href: "/contact",
   },
 ];
 

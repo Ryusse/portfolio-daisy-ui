@@ -20,7 +20,9 @@
     "@fontsource/readex-pro": "^5.0.14",
     "astro": "^4.14.2",
     "astro-icon": "^1.1.1",
-    "embla-carousel": "^8.2.0"
+    "embla-carousel": "^8.2.0",
+    "just-validate": "^4.3.0",
+    "toastify-js": "^1.12.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.15",

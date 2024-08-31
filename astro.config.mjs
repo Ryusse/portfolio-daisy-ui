@@ -3,7 +3,6 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
-
 import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
@@ -13,7 +12,9 @@ export default defineConfig({
     mdx(),
     sitemap(),
     tailwind(),
-    icon({ iconDir: "src/assets/icons" }),
+    icon({
+      iconDir: "src/assets/icons",
+    }),
   ],
   output: "server",
   adapter: netlify(),

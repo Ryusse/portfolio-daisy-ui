@@ -15,4 +15,20 @@
   .text-body-color {
     @apply text-base-content/70;
   }
+
+  .form-control {
+    @apply space-y-1.5 relative;
+  }
+
+  .form-error-label {
+    @apply ml-4;
+    font-size: theme("fontSize.sm");
+    color: theme("colors.error") !important;
+  }
+
+  .form-success-label {
+    @apply ml-4;
+    font-size: theme("fontSize.sm");
+    color: theme("colors.success") !important;
+  }
 }

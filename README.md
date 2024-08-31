@@ -66,3 +66,8 @@ Check out [our documentation](https://docs.astro.build) or jump into our [Discor
 ## Credit
 
 This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+
+
+Services:
+* [Just Validate](https://just-validate.dev)
+* [Web3Forms](https://web3forms.com/platforms/astro-contact-form)

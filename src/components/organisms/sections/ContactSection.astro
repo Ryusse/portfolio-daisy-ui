@@ -7,6 +7,7 @@ const apiUrl = import.meta.env.EMAIL_SERVICE;
 
 <Layout id="contact" class="section">
   <form method="POST" id="form" class="grid gap-4 max-w-3xl mx-auto">
+    <div id="result" class="alert hidden w-full transition-all ease-in-out"></div>
     <div class="grid md:grid-cols-2 gap-4">
       <div class="form-control">
         <input
@@ -63,16 +64,16 @@ const apiUrl = import.meta.env.EMAIL_SERVICE;
     <div class="h-captcha" data-captcha="true"></div>
 
     <button type="submit" class="btn btn-primary" id="submit-button"> Enviar formulario </button>
-    <div id="result" class="alert hidden w-full transition-all ease-in-out"></div>
   </form>
 </Layout>
 
-<script lang="js" type="module" define:vars={{ apiUrl }}>
-  import JustValidate from "../../../../node_modules/just-validate";
+<script>
+  // @ts-ignore
+  import JustValidate from "just-validate";
 
-  const form = document.getElementById("form");
-  const result = document.getElementById("result");
-  const submitButton = form?.querySelector('button[type="submit"]');
+  const form = document.getElementById("form") as HTMLFormElement;
+  const result = document.getElementById("result") as HTMLElement;
+  const submitButton = form?.querySelector("#submit-button") as HTMLButtonElement;
   const loaderHtml = '<span id="submit-loader" class="loading loading-spinner"></span>';
 
   const validator = new JustValidate("#form", {
@@ -168,7 +169,7 @@ const apiUrl = import.meta.env.EMAIL_SERVICE;
       }
     );
 
-  if (form) {
+  if (form && submitButton) {
     form.addEventListener("submit", function (e) {
       const formData = new FormData(form);
       e.preventDefault();
@@ -186,12 +187,17 @@ const apiUrl = import.meta.env.EMAIL_SERVICE;
     });
   }
 
-  const onSubmit = async (formData, submitButton, loaderHtml, result) => {
+  const onSubmit = async (
+    formData: string,
+    submitButton: HTMLButtonElement,
+    loaderHtml: string,
+    result: HTMLElement
+  ) => {
     try {
       submitButton.disabled = true;
       submitButton.insertAdjacentHTML("afterbegin", loaderHtml);
 
-      const response = await fetch(`${apiUrl}/submit`, {
+      const response = await fetch(`https://api.web3forms.com/submit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -206,9 +212,13 @@ const apiUrl = import.meta.env.EMAIL_SERVICE;
       if (json.success) {
         alertClass = "alert-success";
         result.innerHTML = json.message;
+        result.classList.remove("alert-warning", "alert-error");
+        result.classList.add(alertClass);
       } else {
         alertClass = "alert-warning";
         result.innerHTML = json.message;
+        result.classList.remove("alert-success", "alert-error");
+        result.classList.add(alertClass);
       }
 
       result.classList.add(alertClass);
@@ -219,9 +229,11 @@ const apiUrl = import.meta.env.EMAIL_SERVICE;
       result.style.display = "grid";
     } finally {
       submitButton.disabled = false;
+      console.log("submitButton.disabled =>", submitButton.disabled);
       const loader = submitButton.querySelector("#submit-loader");
-      loader.remove();
+      loader?.remove();
       form.reset();
+      validator.refresh();
     }
   };
 </script>

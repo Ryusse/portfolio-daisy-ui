@@ -1,16 +1,11 @@
 ---
-import CtaCard from "@/components/molecules/cards/CtaCard.astro";
-import Profile from "@/components/molecules/common/Profile.astro";
+import GridPatternBackground from "@/components/molecules/backgrounds/GridPatternBackground.astro";
 import Layout from "@/layouts/Layout.astro";
-
-import { ctaLinks } from "@/lib/consts";
 ---
 
-<Layout tag="section" class="section">
-  <div class="grid gap-16">
-    <Profile />
-    <div class="grid lg:grid-cols-3 gap-8">
-      {ctaLinks && ctaLinks.map((cta) => <CtaCard data={cta} />)}
-    </div>
-  </div>
-</Layout>
+<section class="relative section">
+  <Layout>
+    <slot />
+  </Layout>
+  <GridPatternBackground />
+</section>

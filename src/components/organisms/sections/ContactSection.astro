@@ -1,7 +1,16 @@
 ---
+import ContactForm from "@/components/molecules/forms/ContactForm.astro";
 import Layout from "@/layouts/Layout.astro";
 ---
 
-<Layout id="contact" class="section">
-  <h1>Contact</h1>
-</Layout>
+<section id="contact" class="section bg-base-200">
+  <Layout class="grid lg:grid-cols-2 items-start gap-20">
+    <div class="grid gap-5">
+      <h2 class="subtitle">Starting a new project? Get in touch and let’s talk all about it</h2>
+      <p class="text-body-color text-xl">
+        Call, email, meet or video call us - however you’d prefer to work I would love to hear from you
+      </p>
+    </div>
+    <ContactForm />
+  </Layout>
+</section>

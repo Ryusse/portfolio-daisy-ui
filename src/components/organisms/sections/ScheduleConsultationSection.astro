@@ -1,0 +1,15 @@
+---
+import ScheduleConsultation from "@/components/molecules/common/ScheduleConsultation.astro";
+import Layout from "@/layouts/Layout.astro";
+import BannerImage from "@/assets/images/schedule.jpeg";
+import { Image } from "astro:assets";
+---
+
+<section class="bg-base-300 section relative grid items-center">
+  <picture class="absolute w-full flex h-full rounded-3xl">
+    <Image src={BannerImage} class="w-full h-full rounded-2xl object-cover" alt="Schedule consultation" />
+  </picture>
+  <Layout class="section w-full gap-10">
+    <ScheduleConsultation />
+  </Layout>
+</section>

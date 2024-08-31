@@ -1,0 +1,12 @@
+---
+import CtaCard from "@/components/molecules/cards/CtaCard.astro";
+import Profile from "@/components/molecules/common/Profile.astro";
+import { ctaLinks } from "@/lib/consts";
+---
+
+<div class="grid gap-16">
+  <Profile />
+  <div class="grid lg:grid-cols-3 gap-8">
+    {ctaLinks && ctaLinks.map((cta) => <CtaCard data={cta} />)}
+  </div>
+</div>

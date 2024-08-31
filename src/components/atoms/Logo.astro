@@ -8,7 +8,9 @@ type Props = {
 const { class: className = "" } = Astro.props;
 ---
 
-<Icon name="logo" class:list={["w-10 h-10 logo", className]} />
+<a aria-label="Ir al inicio" href="/">
+  <Icon name="logo" class:list={["w-10 h-10 logo", className]} />
+</a>
 
 <style>
   .logo {

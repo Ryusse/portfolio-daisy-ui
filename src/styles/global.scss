@@ -12,6 +12,14 @@
     @apply py-20;
   }
 
+  .title {
+    @apply text-4xl leading-snug font-bold uppercase;
+  }
+
+  .subtitle {
+    @apply text-2xl font-semibold uppercase;
+  }
+
   .text-body-color {
     @apply text-base-content/70;
   }

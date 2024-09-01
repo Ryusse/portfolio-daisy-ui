@@ -28,3 +28,10 @@ export type ProjectType = {
   date: string;
   description: string;
 };
+
+export type LinkType = {
+  label: string;
+  href: string;
+  icon: string;
+  ariaLabel: string;
+};

@@ -1,13 +1,6 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "module": "ES2022",
-    "target": "ES2022",
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "strictNullChecks": true,
-    "allowJs": true,
-    "sourceMap": true,
     "baseUrl": ".",
     "paths": {
       "@/*": [

@@ -19,3 +19,235 @@ import Root from "@/layouts/Root.astro";
   <CtaSection />
   <ScheduleConsultationSection />
 </Root>
+
+<script>
+  import gsap from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from("[data-banner-picture]", {
+    opacity: 0,
+    scale: 0.5,
+    duration: 1,
+    delay: 0.5,
+  });
+
+  gsap.from("[data-header]", {
+    opacity: 0,
+    y: -100,
+    duration: 1,
+    delay: 0.5,
+  });
+
+  gsap.utils.toArray("[data-title]").forEach((title: any) => {
+    gsap.fromTo(
+      title,
+      {
+        opacity: 0,
+        x: 150,
+        skewX: 30,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        skewX: 0,
+        duration: 1,
+        delay: 0.3,
+        scrollTrigger: title,
+      }
+    );
+  });
+
+  gsap.utils.toArray("[data-subtitle]").forEach((item: any) => {
+    gsap.fromTo(
+      item,
+      {
+        opacity: 0,
+        y: 100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.5,
+        scrollTrigger: item,
+      }
+    );
+  });
+
+  gsap.utils.toArray("[data-up]").forEach((item: any) => {
+    gsap.fromTo(
+      item,
+      {
+        opacity: 0,
+        y: -100,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.6,
+        scrollTrigger: item,
+      }
+    );
+  });
+
+  gsap.fromTo(
+    "[data-background]",
+    {
+      scale: 0.2,
+      opacity: 0,
+      skewY: 30,
+    },
+    {
+      scale: 1,
+      opacity: 1,
+      skewY: 0,
+      duration: 1,
+      delay: 0.5,
+      scrollTrigger: "[data-background]",
+    }
+  );
+
+  gsap.utils.toArray("[data-button]").forEach((button: any) => {
+    gsap.fromTo(
+      button,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 1,
+        delay: 0.5,
+        scrollTrigger: button,
+      }
+    );
+  });
+
+  gsap.utils.toArray("[data-brand]").forEach((brand: any) => {
+    gsap.fromTo(
+      brand,
+      {
+        opacity: 0,
+        scale: 0.1,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        delay: 0.5,
+        stagger: {
+          amount: 1,
+        },
+        scrollTrigger: brand,
+      }
+    );
+  });
+
+  gsap.fromTo(
+    "[data-swiper-card]",
+    {
+      opacity: 0,
+      scale: 0.1,
+    },
+    {
+      opacity: 1,
+      scale: 1,
+      duration: 1,
+      delay: 0.3,
+      stagger: {
+        amount: 1,
+      },
+      scrollTrigger: "[data-swiper-card]",
+    }
+  );
+
+  gsap.fromTo(
+    "[data-about-card]",
+    {
+      opacity: 0,
+      scale: 0.1,
+    },
+    {
+      opacity: 1,
+      scale: 1,
+      duration: 1,
+      delay: 0.3,
+      stagger: {
+        amount: 1,
+      },
+      scrollTrigger: "[data-about-card]",
+    }
+  );
+
+  gsap.fromTo(
+    "[data-new-card]",
+    {
+      opacity: 0,
+      scale: 0.1,
+    },
+    {
+      opacity: 1,
+      scale: 1,
+      duration: 1,
+      delay: 0.5,
+      stagger: {
+        amount: 1,
+      },
+      scrollTrigger: "[data-new-card]",
+    }
+  );
+
+  gsap.fromTo(
+    "[data-testimonial-card]",
+    {
+      opacity: 0,
+      scale: 0.1,
+    },
+    {
+      opacity: 1,
+      scale: 1,
+      duration: 1,
+      delay: 0.5,
+      stagger: {
+        amount: 1,
+      },
+      scrollTrigger: "[data-testimonial-card]",
+    }
+  );
+
+  gsap.utils.toArray("[data-left]").forEach((item: any) => {
+    gsap.fromTo(
+      item,
+      {
+        opacity: 0,
+        x: -100,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        delay: 0.6,
+        scrollTrigger: item,
+      }
+    );
+  });
+
+  gsap.utils.toArray("[data-right]").forEach((item: any) => {
+    gsap.fromTo(
+      item,
+      {
+        opacity: 0,
+        x: 100,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        delay: 0.6,
+        scrollTrigger: item,
+      }
+    );
+  });
+</script>

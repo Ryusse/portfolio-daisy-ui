@@ -1,4 +1,4 @@
-import type { CtaItemType, ProjectType, ServiceType, SocialLinkType } from "./types";
+import type { CtaItemType, LinkType, ProjectType, ServiceType, SocialLinkType } from "./types";
 
 import TestImage from "@/assets/images/service-image-test.avif";
 
@@ -124,5 +124,32 @@ export const featuredWork: ProjectType[] = [
     date: "April 2023",
     description:
       " Soft color schemes ensure a visually pleasing experience, aiming to keep users engaged and at ease while navigating this site, in hopes that all the information we wish to convey is easily absorbed by the user",
+  },
+];
+
+export const navigationLinks: LinkType[] = [
+  {
+    label: "Inicio",
+    href: "/",
+    icon: "home",
+    ariaLabel: "Ir a proyectos",
+  },
+  {
+    label: "Templates",
+    href: "/templates",
+    icon: "file",
+    ariaLabel: "Ir a proyectos",
+  },
+  {
+    label: "Proyectos",
+    href: "/projects",
+    icon: "folder",
+    ariaLabel: "Ir a proyectos",
+  },
+  {
+    label: "Contáctame",
+    href: "/contact",
+    icon: "envelope",
+    ariaLabel: "Ir a contacto",
   },
 ];

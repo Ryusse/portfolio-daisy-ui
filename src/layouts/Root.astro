@@ -8,6 +8,7 @@ import "@fontsource/readex-pro/400.css";
 import "@fontsource/readex-pro/500.css";
 import "@fontsource/readex-pro/600.css";
 import "@fontsource/readex-pro/700.css";
+import { ViewTransitions } from "astro:transitions";
 
 type Props = {
   title: string;
@@ -20,6 +21,7 @@ const { title, description } = Astro.props;
 <html lang="es">
   <head>
     <BaseHead title={title} description={description} />
+    <ViewTransitions />
   </head>
   <body>
     <Header />
@@ -29,3 +31,5 @@ const { title, description } = Astro.props;
     <Footer />
   </body>
 </html>
+
+<script src="@/lib/animations.ts"></script>

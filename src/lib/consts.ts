@@ -1,5 +1,6 @@
-import type { CtaItemType, LinkType, ProjectType, ServiceType, SocialLinkType } from "./types";
+import type { CtaItemType, LinkType, ProjectType, ServiceType, SocialLinkType, WorkItemType } from "./types";
 
+import WiLogo from "@/assets/images/wiestate.webp";
 import TestImage from "@/assets/images/service-image-test.avif";
 
 export const SITE_TITLE = "Astro Blog";
@@ -46,6 +47,24 @@ export const ctaLinks: CtaItemType[] = [
     title: "Contact me",
     text: "Send me a email",
     href: "/contact",
+  },
+];
+
+export const workItems: WorkItemType[] = [
+  {
+    title: "Product design at Uber",
+    description: "February 2018 - February 2020",
+    logo: WiLogo,
+  },
+  {
+    title: "Product design at Uber",
+    description: "February 2018 - February 2020",
+    logo: WiLogo,
+  },
+  {
+    title: "Product design at Uber",
+    description: "February 2018 - February 2020",
+    logo: WiLogo,
   },
 ];
 

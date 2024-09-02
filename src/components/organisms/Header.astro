@@ -7,6 +7,7 @@ import { navigationLinks } from "@/lib/consts";
 ---
 
 <header
+  data-header
   class="bg-neutral/90 border border-neutral shadow-md backdrop-blur-lg text-neutral-content bottom-4 rounded-full z-20 justify-center flex left-1/2 -translate-x-1/2 fixed w-fit px-4 py-2 max-w-2xl"
 >
   <nav class="flex justify-between gap-4 items-center w-full">
@@ -35,3 +36,14 @@ import { navigationLinks } from "@/lib/consts";
     </div>
   </nav>
 </header>
+
+<script>
+  import gsap from "gsap";
+
+  gsap.from("[data-header]", {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    delay: 0.3,
+  });
+</script>

@@ -5,16 +5,11 @@ import { Icon } from "astro-icon/components";
 import { featuredWork } from "@/lib/consts";
 ---
 
-<section
-  class="bg-base-200 grid gap-12 section overflow-x-hidden"
-  id="projects"
->
+<section class="bg-base-200 grid gap-12 section overflow-x-hidden" id="projects">
   <Layout class="grid gap-12">
     <div class="grid md:grid-cols-2 gap-10">
-      <h5 class="text-2xl font-semibold uppercase">Featured work</h5>
-      <a href="#" class="btn hidden md:flex w-fit justify-self-end btn-primary"
-        >See all my work</a
-      >
+      <h5 data-subtitle class="text-2xl font-semibold uppercase">Featured work</h5>
+      <a href="#" class="btn hidden md:flex w-fit justify-self-end btn-primary">See all my work</a>
     </div>
   </Layout>
 
@@ -34,24 +29,15 @@ import { featuredWork } from "@/lib/consts";
       </div>
     </div>
     <div class="grid mx-auto w-fit gap-5 grid-cols-2">
-      <button
-        class="btn btn-square btn-outline embla__button--prev"
-        type="button"
-        disabled=""
-      >
+      <button class="btn btn-square btn-outline embla__button--prev" type="button" disabled="">
         <Icon name="prev" />
       </button>
-      <button
-        class="btn btn-square btn-outline embla__button--next"
-        type="button"
-        disabled=""
-      >
+      <button class="btn btn-square btn-outline embla__button--next" type="button" disabled="">
         <Icon name="next" />
       </button>
     </div>
   </div>
-  <a href="#" class="btn md:hidden w-fit mx-auto btn-primary">See all my work</a
-  >
+  <a href="#" class="btn md:hidden w-fit mx-auto btn-primary">See all my work</a>
 </section>
 
 <script>
@@ -59,36 +45,32 @@ import { featuredWork } from "@/lib/consts";
   import { setupTweenScale } from "@/assets/scripts/EmblaCarouselTweenScale";
   import { addPrevNextBtnsClickHandlers } from "@/assets/scripts/EmblaCarouselArrowButtons";
 
-  const OPTIONS = { loop: true, startIndex: 0 };
+  document.addEventListener("astro:page-load", () => {
+    const OPTIONS = { loop: true, startIndex: 0 };
 
-  const emblaNode = document.querySelector(".embla");
+    const emblaNode = document.querySelector(".embla");
 
-  if (emblaNode) {
-    const viewportNode = emblaNode.querySelector(".embla__viewport");
+    if (emblaNode) {
+      const viewportNode = emblaNode.querySelector(".embla__viewport");
 
-    if (!(viewportNode instanceof HTMLElement)) {
-      throw new Error("Expected an HTMLElement");
+      if (!(viewportNode instanceof HTMLElement)) {
+        throw new Error("Expected an HTMLElement");
+      }
+
+      const prevBtn = emblaNode.querySelector(".embla__button--prev");
+      const nextBtn = emblaNode.querySelector(".embla__button--next");
+
+      if (viewportNode) {
+        const emblaApi = EmblaCarousel(viewportNode, OPTIONS);
+
+        const removeTweenScale = setupTweenScale(emblaApi);
+
+        const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(emblaApi, prevBtn, nextBtn);
+
+        emblaApi.on("destroy", removeTweenScale).on("destroy", removePrevNextBtnsClickHandlers);
+      }
     }
-
-    const prevBtn = emblaNode.querySelector(".embla__button--prev");
-    const nextBtn = emblaNode.querySelector(".embla__button--next");
-
-    if (viewportNode) {
-      const emblaApi = EmblaCarousel(viewportNode, OPTIONS);
-
-      const removeTweenScale = setupTweenScale(emblaApi);
-
-      const removePrevNextBtnsClickHandlers = addPrevNextBtnsClickHandlers(
-        emblaApi,
-        prevBtn,
-        nextBtn,
-      );
-
-      emblaApi
-        .on("destroy", removeTweenScale)
-        .on("destroy", removePrevNextBtnsClickHandlers);
-    }
-  }
+  });
 </script>
 
 <style lang="scss">

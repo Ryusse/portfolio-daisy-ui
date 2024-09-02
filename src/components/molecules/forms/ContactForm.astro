@@ -2,7 +2,7 @@
 const apiKey = import.meta.env.WEB3FORMS_API_KEY;
 ---
 
-<form method="POST" id="form" class="grid gap-4 w-full mx-auto">
+<form method="POST" id="form" class="grid gap-4 w-full mx-auto" enctype="application/x-www-form-urlencoded">
   <div id="result" class="alert hidden w-full transition-all ease-in-out"></div>
   <div class="grid md:grid-cols-2 gap-4">
     <div class="form-control">
@@ -71,164 +71,166 @@ const apiKey = import.meta.env.WEB3FORMS_API_KEY;
   const submitButton = form?.querySelector("#submit-button") as HTMLButtonElement;
   const loaderHtml = '<span id="submit-loader" class="loading loading-spinner"></span>';
 
-  const validator = new JustValidate("#form", {
-    errorFieldCssClass: ["input-error", "textarea-error"],
-    errorLabelCssClass: ["form-error-label"],
-    successLabelCssClass: ["form-success-label"],
-    validateBeforeSubmitting: true,
-  });
-
-  validator
-    .addField(
-      "#firstName",
-      [
-        {
-          rule: "required",
-          errorMessage: "Este campo es requerido",
-        },
-        {
-          rule: "minLength",
-          value: 3,
-          errorMessage: "Mínimo 3 caracteres",
-        },
-      ],
-      {
-        successMessage: "Campo válido",
-      }
-    )
-    .addField(
-      "#lastName",
-      [
-        {
-          rule: "required",
-          errorMessage: "Este campo es requerido",
-        },
-        {
-          rule: "minLength",
-          value: 3,
-          errorMessage: "Mínimo 3 caracteres",
-        },
-      ],
-      {
-        successMessage: "Campo válido",
-      }
-    )
-    .addField(
-      "#company",
-      [
-        {
-          rule: "required",
-          errorMessage: "Este campo es requerido",
-        },
-        {
-          rule: "minLength",
-          value: 3,
-          errorMessage: "Mínimo 3 caracteres",
-        },
-      ],
-      {
-        successMessage: "Campo válido",
-      }
-    )
-    .addField(
-      "#email",
-      [
-        {
-          rule: "required",
-          errorMessage: "Este campo es requerido",
-        },
-        {
-          rule: "email",
-          errorMessage: "Ingresa un formato válido",
-        },
-      ],
-      {
-        successMessage: "Campo válido",
-      }
-    )
-    .addField(
-      "#message",
-      [
-        {
-          rule: "required",
-          errorMessage: "Este campo es requerido",
-        },
-        {
-          rule: "minLength",
-          value: 3,
-          errorMessage: "Mínimo 3 caracteres",
-        },
-      ],
-      {
-        successMessage: "Campo válido",
-      }
-    );
-
-  if (form && submitButton) {
-    form.addEventListener("submit", function (e) {
-      const formData = new FormData(form);
-      e.preventDefault();
-
-      const object = Object.fromEntries(formData);
-      const data = JSON.stringify(object);
-
-      if (validator.isValid) {
-        onSubmit(data, submitButton, loaderHtml, result);
-
-        setTimeout(() => {
-          result.style.display = "none";
-        }, 5000);
-      }
+  document.addEventListener("astro:page-load", () => {
+    const validator = new JustValidate("#form", {
+      errorFieldCssClass: ["input-error", "textarea-error"],
+      errorLabelCssClass: ["form-error-label"],
+      successLabelCssClass: ["form-success-label"],
+      validateBeforeSubmitting: true,
     });
-  }
 
-  const onSubmit = async (
-    formData: string,
-    submitButton: HTMLButtonElement,
-    loaderHtml: string,
-    result: HTMLElement
-  ) => {
-    try {
-      submitButton.disabled = true;
-      submitButton.insertAdjacentHTML("afterbegin", loaderHtml);
+    validator
+      .addField(
+        "#firstName",
+        [
+          {
+            rule: "required",
+            errorMessage: "Este campo es requerido",
+          },
+          {
+            rule: "minLength",
+            value: 3,
+            errorMessage: "Mínimo 3 caracteres",
+          },
+        ],
+        {
+          successMessage: "Campo válido",
+        }
+      )
+      .addField(
+        "#lastName",
+        [
+          {
+            rule: "required",
+            errorMessage: "Este campo es requerido",
+          },
+          {
+            rule: "minLength",
+            value: 3,
+            errorMessage: "Mínimo 3 caracteres",
+          },
+        ],
+        {
+          successMessage: "Campo válido",
+        }
+      )
+      .addField(
+        "#company",
+        [
+          {
+            rule: "required",
+            errorMessage: "Este campo es requerido",
+          },
+          {
+            rule: "minLength",
+            value: 3,
+            errorMessage: "Mínimo 3 caracteres",
+          },
+        ],
+        {
+          successMessage: "Campo válido",
+        }
+      )
+      .addField(
+        "#email",
+        [
+          {
+            rule: "required",
+            errorMessage: "Este campo es requerido",
+          },
+          {
+            rule: "email",
+            errorMessage: "Ingresa un formato válido",
+          },
+        ],
+        {
+          successMessage: "Campo válido",
+        }
+      )
+      .addField(
+        "#message",
+        [
+          {
+            rule: "required",
+            errorMessage: "Este campo es requerido",
+          },
+          {
+            rule: "minLength",
+            value: 3,
+            errorMessage: "Mínimo 3 caracteres",
+          },
+        ],
+        {
+          successMessage: "Campo válido",
+        }
+      );
 
-      const response = await fetch(`https://api.web3forms.com/submit`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: formData,
+    if (form && submitButton) {
+      form.addEventListener("submit", function (e) {
+        const formData = new FormData(form);
+        e.preventDefault();
+
+        const object = Object.fromEntries(formData);
+        const data = JSON.stringify(object);
+
+        if (validator.isValid) {
+          onSubmit(data, submitButton, loaderHtml, result);
+
+          setTimeout(() => {
+            result.style.display = "none";
+          }, 5000);
+        }
       });
-
-      let json = await response.json();
-      let alertClass;
-
-      if (json.success) {
-        alertClass = "alert-success";
-        result.innerHTML = json.message;
-        result.classList.remove("alert-warning", "alert-error");
-        result.classList.add(alertClass);
-      } else {
-        alertClass = "alert-warning";
-        result.innerHTML = json.message;
-        result.classList.remove("alert-success", "alert-error");
-        result.classList.add(alertClass);
-      }
-
-      result.classList.add(alertClass);
-      result.style.display = "grid";
-    } catch (error) {
-      result.innerHTML = "Ocurrió un error intenta mas tarde.";
-      result.classList.add("alert-error");
-      result.style.display = "grid";
-    } finally {
-      submitButton.disabled = false;
-      console.log("submitButton.disabled =>", submitButton.disabled);
-      const loader = submitButton.querySelector("#submit-loader");
-      loader?.remove();
-      form.reset();
-      validator.refresh();
     }
-  };
+
+    const onSubmit = async (
+      formData: string,
+      submitButton: HTMLButtonElement,
+      loaderHtml: string,
+      result: HTMLElement
+    ) => {
+      try {
+        submitButton.disabled = true;
+        submitButton.insertAdjacentHTML("afterbegin", loaderHtml);
+
+        const response = await fetch(`https://api.web3forms.com/submit`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: formData,
+        });
+
+        let json = await response.json();
+        let alertClass;
+
+        if (json.success) {
+          alertClass = "alert-success";
+          result.innerHTML = json.message;
+          result.classList.remove("alert-warning", "alert-error");
+          result.classList.add(alertClass);
+        } else {
+          alertClass = "alert-warning";
+          result.innerHTML = json.message;
+          result.classList.remove("alert-success", "alert-error");
+          result.classList.add(alertClass);
+        }
+
+        result.classList.add(alertClass);
+        result.style.display = "grid";
+      } catch (error) {
+        result.innerHTML = "Ocurrió un error intenta mas tarde.";
+        result.classList.add("alert-error");
+        result.style.display = "grid";
+      } finally {
+        submitButton.disabled = false;
+        console.log("submitButton.disabled =>", submitButton.disabled);
+        const loader = submitButton.querySelector("#submit-loader");
+        loader?.remove();
+        form.reset();
+        validator.refresh();
+      }
+    };
+  });
 </script>

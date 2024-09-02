@@ -2,21 +2,21 @@
 import { Image } from "astro:assets";
 
 import Wiestate from "@/assets/images/wiestate.webp";
+import type { WorkItemType } from "@/lib/types";
+
+type Props = {
+  data: WorkItemType;
+};
+
+const { data, ...props } = Astro.props;
 ---
 
-<div class="grid items-center grid-cols-[auto_1fr] gap-4">
+<div class="grid items-center grid-cols-[auto_1fr] gap-4" {...props}>
   <div class="w-14 h-14 bg-base-content/10 rounded-lg">
-    <Image
-      class="rounded-lg"
-      src={Wiestate}
-      width="56"
-      height={56}
-      alt="Wiestate logo"
-      format="webp"
-    />
+    <Image class="rounded-lg" src={data.logo} width="56" height={56} alt="Wiestate logo" format="webp" />
   </div>
   <div class="grid mb-1">
-    <p class="text-xl font-semibold">Product design at Uber</p>
-    <p class="text-body-color">February 2018 - February 2020</p>
+    <p class="text-xl font-semibold">{data.title}</p>
+    <p class="text-body-color">{data.description}</p>
   </div>
 </div>

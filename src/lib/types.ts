@@ -11,6 +11,12 @@ export type CtaItemType = {
   href: string;
 };
 
+export type WorkItemType = {
+  title: string;
+  description: string;
+  logo: ImageMetadata;
+};
+
 export type ServiceType = {
   title: string;
   icon: string;

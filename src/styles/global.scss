@@ -4,8 +4,12 @@
 
 @layer utilities {
   html {
-    @apply font-sans selection:bg-accent;
+    @apply font-sans selection:bg-accent overflow-x-hidden;
     scroll-behavior: smooth;
+  }
+
+  body {
+    @apply overflow-x-hidden;
   }
 
   .section {

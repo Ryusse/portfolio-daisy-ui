@@ -2,17 +2,32 @@
 import Divider from "@/components/atoms/Divider.astro";
 import WorkExperienceCard from "@/components/molecules/cards/WorkExperienceCard.astro";
 import Layout from "@/layouts/Layout.astro";
+
+import { workItems } from "@/lib/consts";
 ---
 
 <section class="bg-base-200 section">
   <Layout tag="div" class="grid gap-10 md:gap-20 md:grid-cols-2">
-    <h2 class="text-2xl font-semibold uppercase">WORKING EXPERIENCE</h2>
+    <h2 data-experience-subtitle class="text-2xl font-semibold uppercase">WORKING EXPERIENCE</h2>
     <div class="flex flex-col">
-      <WorkExperienceCard />
-      <Divider class="my-8" />
-      <WorkExperienceCard />
-      <Divider class="my-8" />
-      <WorkExperienceCard />
+      {
+        workItems &&
+          workItems.map((workItem, index: number) => (
+            <div data-experience-card>
+              <WorkExperienceCard data={workItem} />
+              {index !== workItems.length - 1 && <Divider class="my-8" />}
+            </div>
+          ))
+      }
     </div>
   </Layout>
 </section>
+
+<script>
+  import { fadeUp, fromLeft } from "@/lib/animations";
+
+  document.addEventListener("astro:page-load", () => {
+    fromLeft("[data-experience-subtitle]");
+    fadeUp("[data-experience-card]");
+  });
+</script>

@@ -20,7 +20,7 @@ import Layout from "@/layouts/Layout.astro";
 
   const datetime = document.getElementById("datetime") as HTMLElement;
 
-  let update;
+  let update: () => void;
 
   (update = () => {
     datetime.innerHTML = moment().format("h:mm:ss a");

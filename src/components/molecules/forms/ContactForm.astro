@@ -203,7 +203,7 @@ const apiKey = import.meta.env.WEB3FORMS_API_KEY;
         });
 
         let json = await response.json();
-        let alertClass;
+        let alertClass: string;
 
         if (json.success) {
           alertClass = "alert-success";

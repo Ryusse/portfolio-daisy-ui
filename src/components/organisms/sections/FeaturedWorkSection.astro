@@ -5,15 +5,17 @@ import { Icon } from "astro-icon/components";
 import { featuredWork } from "@/lib/consts";
 ---
 
-<section class="bg-base-200 grid gap-12 section overflow-x-hidden" id="projects">
+<section class="bg-base-200 overflow-hidden grid gap-12 section overflow-x-hidden" id="projects">
   <Layout class="grid gap-12">
     <div class="grid md:grid-cols-2 gap-10">
-      <h5 data-subtitle class="text-2xl font-semibold uppercase">Featured work</h5>
-      <a href="#" class="btn hidden md:flex w-fit justify-self-end btn-primary">See all my work</a>
+      <h5 data-project-subtitle class="text-2xl font-semibold uppercase">Trabajo destacado</h5>
+      <a href="/projects" data-project-button class="btn hidden md:flex w-fit justify-self-end btn-primary"
+        >Mira todo mi trabajo</a
+      >
     </div>
   </Layout>
 
-  <div class="embla px-4 rounded-2xl lg:px-0 grid gap-10">
+  <div data-project-list class="embla px-4 rounded-2xl lg:px-0 grid gap-10">
     <div class="embla__viewport rounded-3xl">
       <div class="embla__container">
         {
@@ -29,15 +31,15 @@ import { featuredWork } from "@/lib/consts";
       </div>
     </div>
     <div class="grid mx-auto w-fit gap-5 grid-cols-2">
-      <button class="btn btn-square btn-outline embla__button--prev" type="button" disabled="">
+      <button aria-label="Siguiente" class="btn btn-square btn-outline embla__button--prev" type="button" disabled="">
         <Icon name="prev" />
       </button>
-      <button class="btn btn-square btn-outline embla__button--next" type="button" disabled="">
+      <button aria-label="Anterior" class="btn btn-square btn-outline embla__button--next" type="button" disabled="">
         <Icon name="next" />
       </button>
     </div>
   </div>
-  <a href="#" class="btn md:hidden w-fit mx-auto btn-primary">See all my work</a>
+  <a data-mobile-button href="/projects" class="btn md:hidden w-fit mx-auto btn-primary">Mira todo mi trabajo</a>
 </section>
 
 <script>
@@ -70,6 +72,17 @@ import { featuredWork } from "@/lib/consts";
         emblaApi.on("destroy", removeTweenScale).on("destroy", removePrevNextBtnsClickHandlers);
       }
     }
+  });
+</script>
+
+<script>
+  import { fadeUpOnce, fromLeft, fromRight } from "@/lib/animations";
+
+  document.addEventListener("astro:page-load", () => {
+    fromLeft("[data-project-subtitle]");
+    fromRight("[data-project-button]");
+    fadeUpOnce("[data-project-list]");
+    fadeUpOnce("[data-mobile-button]");
   });
 </script>
 

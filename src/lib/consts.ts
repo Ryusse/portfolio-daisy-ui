@@ -11,21 +11,25 @@ export const socialLinks: SocialLinkType[] = [
     label: "Dribble",
     icon: "dribble",
     href: "#",
+    ariaLabel: "Dribble",
   },
   {
     label: "Behance",
     icon: "behance",
     href: "#",
+    ariaLabel: "Behance",
   },
   {
     label: "Linkedin",
     icon: "linkedin",
     href: "#",
+    ariaLabel: "Linkedin",
   },
   {
     label: "Github",
     icon: "github",
     href: "#",
+    ariaLabel: "Github",
   },
 ];
 
@@ -35,18 +39,21 @@ export const ctaLinks: CtaItemType[] = [
     title: "Last projects",
     text: "Name of the last projects",
     href: "#projects",
+    ariaLabel: "Proyectos",
   },
   {
     icon: "layer-group",
     title: "Services",
     text: "All services I give",
     href: "#services",
+    ariaLabel: "Servicios",
   },
   {
     icon: "envelope",
     title: "Contact me",
     text: "Send me a email",
     href: "/contact",
+    ariaLabel: "Contácto",
   },
 ];
 
@@ -72,23 +79,25 @@ export const services: ServiceType[] = [
   {
     href: "#",
     icon: "file",
-    title: "Full pages Website design",
+    title: "Diseño de sitios web de página completa",
     description:
-      "Crafting immersive and engaging full-page website designs that captivate audiences and deliver a seamless user experience.",
+      "Creando diseños de sitios web inmersivos y atractivos que cautivan a las audiencias y ofrecen una experiencia de usuario fluida.",
     image: TestImage,
   },
   {
     href: "#",
     icon: "code",
-    title: "Web Development",
-    description: "I develop websites using React, Next.js, Gatsby, and Vue.",
+    title: "Desarrollo Web",
+    description:
+      "Desarrollo sitios web utilizando React, Next.js, Gatsby y Vue, asegurando un rendimiento óptimo, escalabilidad y una experiencia de usuario excepcional en cada proyecto.",
     image: TestImage,
   },
   {
     href: "#",
     icon: "object-group",
-    title: "UI/UX Design",
-    description: "I design websites using Figma.",
+    title: "Diseño UI/UX",
+    description:
+      "Diseño sitios web utilizando Figma, enfocándome en la creación de interfaces intuitivas y atractivas que mejoren la interacción del usuario y generen una experiencia memorable.",
     image: TestImage,
   },
 ];
@@ -151,24 +160,24 @@ export const navigationLinks: LinkType[] = [
     label: "Inicio",
     href: "/",
     icon: "home",
-    ariaLabel: "Ir a proyectos",
+    ariaLabel: "Inicio",
   },
   {
     label: "Templates",
     href: "/templates",
     icon: "file",
-    ariaLabel: "Ir a proyectos",
+    ariaLabel: "Templates",
   },
   {
     label: "Proyectos",
     href: "/projects",
     icon: "folder",
-    ariaLabel: "Ir a proyectos",
+    ariaLabel: "Proyectos",
   },
   {
     label: "Contáctame",
     href: "/contact",
     icon: "envelope",
-    ariaLabel: "Ir a contacto",
+    ariaLabel: "Contácto",
   },
 ];

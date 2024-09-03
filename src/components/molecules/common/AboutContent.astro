@@ -7,19 +7,15 @@ import { ctaLinks } from "@/lib/consts";
 <div class="grid gap-16" data-profile>
   <Profile />
   <div class="grid lg:grid-cols-3 gap-8">
-    {ctaLinks && ctaLinks.map((cta) => <CtaCard data={cta} />)}
+    {ctaLinks && ctaLinks.map((cta) => <CtaCard data={cta} data-cta-card />)}
   </div>
 </div>
 
 <script>
-  import gsap from "gsap";
+  import { fadeUpOnce, fadeUp } from "@/lib/animations";
 
   document.addEventListener("astro:page-load", () => {
-    gsap.from("[data-profile]", {
-      opacity: 0,
-      y: 30,
-      duration: 1,
-      delay: 0.3,
-    });
+    fadeUpOnce("[data-profile]", 30, 0.3, 1);
+    fadeUp("[data-cta-card]");
   });
 </script>

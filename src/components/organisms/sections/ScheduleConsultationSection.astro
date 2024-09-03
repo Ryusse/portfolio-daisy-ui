@@ -5,7 +5,7 @@ import BannerImage from "@/assets/images/schedule.jpeg";
 import { Image } from "astro:assets";
 ---
 
-<section class="bg-base-300 section relative grid items-center">
+<section class="bg-base-300 overflow-hidden section relative grid items-center">
   <picture class="absolute w-full flex h-full rounded-3xl">
     <Image src={BannerImage} class="w-full h-full rounded-2xl object-cover" alt="Schedule consultation" />
   </picture>
@@ -13,3 +13,11 @@ import { Image } from "astro:assets";
     <ScheduleConsultation />
   </Layout>
 </section>
+
+<script>
+  import { scaleUp } from "@/lib/animations";
+
+  document.addEventListener("astro:page-load", () => {
+    scaleUp("[data-schedule-consultation]");
+  });
+</script>

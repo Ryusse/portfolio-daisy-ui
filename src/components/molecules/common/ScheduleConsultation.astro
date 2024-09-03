@@ -1,22 +1,23 @@
 <div
-  class="bg-base-100/80 text-center px-4 py-8 md:p-20 backdrop-blur-md z-10 relative w-full grid place-content-center rounded-3xl shadow-lg"
+  data-schedule-consultation
+  class="bg-base-100/80 text-center px-6 py-8 md:p-20 backdrop-blur-md z-10 relative w-full grid place-content-center rounded-3xl shadow-lg"
 >
   <div class="max-w-2xl">
-    <h3 class="text-3xl md:text-4xl font-bold mb-2">Free 30min consultation</h3>
+    <h3 class="text-3xl md:text-4xl font-bold mb-2">Consulta gratuita de 30 minutos</h3>
     <p class="mb-10 text-body-color">
-      Have a new project in mind? Schedule a 30-minute discovery call or fill out the quick form, and together we'll
-      explore the possibilities.
+      ¿Tienes una nueva idea en mente? Agenda una llamada de descubrimiento de 30 minutos y conoce cómo podemos impulsar
+      tu proyecto o encontrar al talento que necesitas. Juntos, llevaremos tu visión al siguiente nivel.
     </p>
     <button
       class="btn btn-primary"
       onclick="Calendly.initPopupWidget({url: 'https://calendly.com/joelangelocano/30min'});return false;"
-      >Schedule a quick call
+      >Programa una reunión rápida
     </button>
   </div>
+
+  <!-- Calendly link widget begin -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+  <!-- Calendly link widget end -->
 </div>
-
-<!-- Calendly link widget begin -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-
-<!-- Calendly link widget end -->

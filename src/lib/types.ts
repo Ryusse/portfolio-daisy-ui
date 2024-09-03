@@ -2,6 +2,7 @@ export type SocialLinkType = {
   label: string;
   icon: string;
   href: string;
+  ariaLabel: string;
 };
 
 export type CtaItemType = {
@@ -9,6 +10,7 @@ export type CtaItemType = {
   icon: string;
   text: string;
   href: string;
+  ariaLabel?: string;
 };
 
 export type WorkItemType = {

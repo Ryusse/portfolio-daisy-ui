@@ -2,7 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 ---
 
-<Layout id="contact" class="section">
+<Layout id="contact" class="section" data-cta-section>
   <div class="max-w-xl mx-auto grid justify-center gap-8">
     <h6 class="text-2xl text-center font-semibold uppercase">¿Tienes un proyecto en mente?, Hablemos</h6>
     <div class="grid gap-4 justify-center">
@@ -18,12 +18,24 @@ import Layout from "@/layouts/Layout.astro";
 <script>
   import moment from "moment";
 
-  const datetime = document.getElementById("datetime") as HTMLElement;
+  document.addEventListener("astro:page-load", () => {
+    const datetime = document.getElementById("datetime") as HTMLElement;
 
-  let update: () => void;
+    let update: () => void;
 
-  (update = () => {
-    datetime.innerHTML = moment().format("h:mm:ss a");
-  })();
-  setInterval(update, 1000);
+    (update = () => {
+      if (datetime) {
+        datetime.innerHTML = moment().format("h:mm:ss a");
+      }
+    })();
+    setInterval(update, 1000);
+  });
+</script>
+
+<script>
+  import { fadeUpOnce } from "@/lib/animations";
+
+  document.addEventListener("astro:page-load", () => {
+    fadeUpOnce("[data-cta-section]", 30, 0.6, 0.8);
+  });
 </script>

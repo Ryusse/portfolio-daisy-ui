@@ -15,7 +15,7 @@ import { navigationLinks } from "@/lib/consts";
       {
         navigationLinks.slice(0, 2).map((link) => (
           <div class="tooltip tooltip-accent" data-tip={link.label}>
-            <NavigationLink href={link.href} class="w-12 h-12">
+            <NavigationLink href={link.href} class="w-12 h-12" ariaLabel={link.ariaLabel}>
               <Icon name={link.icon} class="" />
             </NavigationLink>
           </div>
@@ -27,7 +27,7 @@ import { navigationLinks } from "@/lib/consts";
       {
         navigationLinks.slice(2).map((link) => (
           <div class="tooltip tooltip-accent" data-tip={link.label}>
-            <NavigationLink href={link.href} class="w-12 h-12">
+            <NavigationLink href={link.href} class="w-12 h-12" ariaLabel={link.ariaLabel}>
               <Icon name={link.icon} />
             </NavigationLink>
           </div>

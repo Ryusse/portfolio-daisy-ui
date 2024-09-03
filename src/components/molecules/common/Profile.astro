@@ -21,7 +21,7 @@ import Me from "@/assets/images/me.jpg";
       socialLinks &&
         socialLinks.map((link) => (
           <div class="lg:tooltip" data-tip={link.label}>
-            <a href={link.href} class="btn btn-square text-2xl btn-circle">
+            <a aria-label={link.label} href={link.href} class="btn btn-square text-2xl btn-circle">
               <Icon name={link.icon} />
             </a>
           </div>

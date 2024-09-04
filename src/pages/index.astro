@@ -7,6 +7,11 @@ import FeaturedWorkSection from "@/components/organisms/sections/FeaturedWorkSec
 import ScheduleConsultationSection from "@/components/organisms/sections/ScheduleConsultationSection.astro";
 import ServicesSection from "@/components/organisms/sections/ServicesSection.astro";
 import Root from "@/layouts/Root.astro";
+import { getCourses } from "@/lib/groq";
+
+const courses = await getCourses();
+
+console.log("courses=>", courses);
 ---
 
 <Root title="Home" description="Home">

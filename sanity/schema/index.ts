@@ -1,17 +1,20 @@
 import blockContent from "./blockContent";
 import post from "./post";
 
-import landing from "./documents/landing";
+import landingPage from "./pages/landing.page";
+import ProjectsPage from "./pages/projects.page";
+
 import logo from "./documents/logo";
 import settings from "./documents/settings";
-import course from "./documents/course.item";
+import categoryItem from "./documents/category.item";
+import projectItem from "./documents/project.item";
 import serviceCategory from "./documents/service.category";
 import testimonialItem from "./documents/testimonial.item";
 import newItem from "./documents/new.item";
 
 import banner from "./modules/banner";
 import experience from "./modules/experience";
-import courseModule from "./modules/course.module";
+import featuredModule from "./modules/featured.module";
 import partnersModule from "./modules/partners.module";
 import aboutModule from "./modules/about.module";
 import testimonialModule from "./modules/testimonial.module";
@@ -19,16 +22,18 @@ import contactModule from "./modules/contact.module";
 import newModule from "./modules/new.module";
 
 export const schemaTypes = [
-  landing,
+  landingPage,
+  ProjectsPage,
   logo,
   settings,
-  course,
+  categoryItem,
+  projectItem,
   serviceCategory,
   testimonialItem,
   newItem,
   banner,
   experience,
-  courseModule,
+  featuredModule,
   partnersModule,
   aboutModule,
   testimonialModule,

@@ -19,16 +19,14 @@ import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./sanity/schema";
 import structure from "./sanity/structure";
+import { IconManager } from "sanity-plugin-icon-manager";
 
 export default defineConfig({
   name: "ryuse-portfolio",
   title: "Ryuse portfolio",
   projectId,
   dataset,
-  plugins: [
-    structureTool({ title: "Content", structure }),
-    //visionTool()
-  ],
+  plugins: [IconManager(), structureTool({ title: "Content", structure }), visionTool()],
   schema: {
     types: schemaTypes,
   },

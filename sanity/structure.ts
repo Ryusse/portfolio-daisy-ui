@@ -9,11 +9,14 @@ const structure: StructureResolver = (S) =>
     .items([
       singleton(S, "Configuración", "settings"),
       S.divider(),
-      singleton(S, "Landing page", "landing"),
+      singleton(S, "Landing page", "landing.page"),
+      singleton(S, "Página proyectos", "projects.page"),
       S.divider(),
-      S.documentTypeListItem("course.item").title("Cursos"),
+      S.documentTypeListItem("project.item").title("Proyectos"),
       S.documentTypeListItem("testimonial.item").title("Testimonios"),
       S.documentTypeListItem("new.item").title("Noticias"),
+      S.divider(),
+      S.documentTypeListItem("category.item").title("Categorías"),
       S.divider(),
     ]);
 
